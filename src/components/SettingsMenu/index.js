@@ -13,17 +13,6 @@ export default function SettingsMenu({ navigate }) {
 
   return (
     <>
-      <TouchableOpacity
-        style={styles.item}
-        onPress={() => navigate('Change Language')}
-      >
-        <View style={styles.itemContainer}>
-          <Feather name="globe" size={32} color={theme.colors.primary} />
-          <Text style={styles.itemTitle}>
-            {i18n.t('settingsMenu.changeLanguage')}
-          </Text>
-        </View>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.item} onPress={() => navigate('About')}>
         <View style={styles.itemContainer}>
           <Feather name="info" size={32} color={theme.colors.primary} />

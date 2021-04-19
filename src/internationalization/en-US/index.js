@@ -26,7 +26,6 @@ export default {
     updateGenre: 'Update Genre',
     settings: 'Settings',
     about: 'About',
-    changeLanguage: 'Change Language',
   },
   books: {
     newBook: {
@@ -57,9 +56,6 @@ export default {
     text4: 'Enjoy it!',
     author: 'Created by Guilherme Eiti',
   },
-  changeLanguage: {
-    submit: 'Change Language',
-  },
   // Components
   bookList: {
     book: {
@@ -82,7 +78,6 @@ export default {
     firstLabel: 'Please select an option...',
   },
   settingsMenu: {
-    changeLanguage: 'Change Language',
     about: 'About',
   },
   // reducers

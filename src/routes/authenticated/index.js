@@ -6,7 +6,6 @@ import Home from '../../screens/Home';
 import Books from '../../screens/Books';
 import Genres from '../../screens/Genres';
 import Settings from '../../screens/Settings';
-import ChangeLanguage from '../../screens/ChangeLanguage';
 import NewGenre from '../../screens/Genres/NewGenre';
 import UpdateGenre from '../../screens/Genres/UpdateGenre';
 import NewBook from '../../screens/Books/NewBook';
@@ -66,11 +65,6 @@ export default function AuthenticatedRoutes() {
         name="About"
         component={About}
         options={{ title: i18n.t('authenticatedRoutes.about') }}
-      />
-      <Stack.Screen
-        name="Change Language"
-        component={ChangeLanguage}
-        options={{ title: i18n.t('authenticatedRoutes.changeLanguage') }}
       />
     </Stack.Navigator>
   );
