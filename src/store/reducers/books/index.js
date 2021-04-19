@@ -8,11 +8,13 @@ export const Types = {
   UPDATE_BOOK: 'books/UPDATE_BOOK',
   DELETE_BOOK: 'books/DELETE_BOOK',
   SELECT_BOOK: 'books/SELECT_BOOK',
+  SET_REFRESHING: 'books/SET_REFRESHING',
 };
 
 const initialState = {
   books: [],
   selectedBook: null,
+  refreshing: false,
 };
 
 export default function reducer(state = initialState, action) {
@@ -122,6 +124,13 @@ export function addBook(title, text, genre_id) {
         user_id: user.uid,
       });
 
+      const genreDoc = await firestore()
+        .collection('genres')
+        .doc(genre_id)
+        .get();
+
+      const { name: genreName } = genreDoc.data();
+
       await dispatch({
         type: Types.ADD_BOOK,
         payload: {
@@ -131,6 +140,10 @@ export function addBook(title, text, genre_id) {
             text,
             genre_id,
             user_id: user.uid,
+            genre: {
+              id: genre_id,
+              name: genreName,
+            },
           },
         },
       });
@@ -158,8 +171,8 @@ export function deleteBook(id) {
 }
 
 export function selectBook(book) {
-  return (dispatch) => {
-    dispatch({
+  return async (dispatch) => {
+    await dispatch({
       type: Types.SELECT_BOOK,
       payload: {
         book,
@@ -177,14 +190,38 @@ export function updateBook(book) {
         book: book.genre_id,
       });
 
-      dispatch({
+      const genreDoc = await firestore()
+        .collection('genres')
+        .doc(book.genre_id)
+        .get();
+
+      const { name: genreName } = genreDoc.data();
+
+      await dispatch({
         type: Types.UPDATE_BOOK,
         payload: {
-          book,
+          book: {
+            ...book,
+            genre: {
+              id: book.genre_id,
+              name: genreName,
+            },
+          },
         },
       });
     } catch (err) {
       Alert.alert(i18n.t('error'), i18n.t('reducers.books.updateBookError'));
     }
+  };
+}
+
+export function setRefresh(refreshing) {
+  return (dispatch) => {
+    dispatch({
+      type: Types.SET_REFRESHING,
+      payload: {
+        refreshing,
+      },
+    });
   };
 }

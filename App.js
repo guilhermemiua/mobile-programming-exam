@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
 
+import { LogBox } from 'react-native';
 import firebaseConfig from './src/config/firebase';
 import translations from './src/internationalization';
 
@@ -25,6 +26,8 @@ export default function App() {
     console.log('Connected with Firebase');
     firebase.initializeApp(firebaseConfig);
   }
+
+  LogBox.ignoreAllLogs();
 
   return (
     <Provider store={store}>

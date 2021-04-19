@@ -54,6 +54,8 @@ export function verifyIfIsAuthenticated() {
     try {
       const { currentUser } = await auth();
 
+      console.log(currentUser);
+
       if (currentUser) {
         await dispatch({
           type: Types.AUTHENTICATED,

@@ -12,14 +12,18 @@ export default function Register({ navigation: { navigate } }) {
   const [password, setPassword] = useState('');
 
   const handleSubmit = async () => {
-    if (!email || password) {
-      Alert.alert(i18n.t('error'), i18n.t('fieldsUnfilled'));
-      return;
+    try {
+      if (!email || !password) {
+        Alert.alert(i18n.t('error'), i18n.t('fieldsUnfilled'));
+        return;
+      }
+
+      await auth().createUserWithEmailAndPassword(email, password);
+
+      await navigate('Login');
+    } catch (err) {
+      Alert.alert(i18n.t('error'), i18n.t('register.registerError'));
     }
-
-    await auth().createUserWithEmailAndPassword(email, password);
-
-    navigate('Login');
   };
 
   return (

@@ -36,10 +36,10 @@ export default function Book({ navigation, book }) {
     );
   };
 
-  const goToUpdateBook = () => {
-    dispatch(selectBook(book));
+  const goToUpdateBook = async () => {
+    await dispatch(selectBook(book));
 
-    navigation.navigate('Update Book');
+    await navigation.navigate('Update Book');
   };
 
   return (

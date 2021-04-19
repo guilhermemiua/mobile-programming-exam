@@ -13,6 +13,7 @@ export default {
     password: 'Password',
     submit: 'Register',
     hasAccount: 'Already have an account?',
+    registerError: 'Error registering account',
   },
   unauthenticatedRoutes: {
     register: 'Register',

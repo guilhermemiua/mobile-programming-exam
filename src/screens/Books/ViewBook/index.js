@@ -12,9 +12,9 @@ export default function ViewBook() {
 
   return (
     <ScrollView style={[globalStyles.container]}>
-      <Text style={styles.genre}>{selectedBook.genre.name}</Text>
+      <Text style={styles.genre}>{selectedBook?.genre?.name}</Text>
       <View style={styles.bookCard}>
-        <Text style={styles.text}>{selectedBook.text}</Text>
+        <Text style={styles.text}>{selectedBook?.text}</Text>
       </View>
     </ScrollView>
   );
