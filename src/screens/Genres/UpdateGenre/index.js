@@ -42,12 +42,12 @@ export default function UpdateGenre({ navigation: { navigate } }) {
     <View style={globalStyles.container}>
       <InputComponent
         value={name}
-        placeholder={i18n.t('genres.newGenre.name')}
+        placeholder={i18n.t('genres.updateGenre.name')}
         style={styles.input}
         onChange={(event) => setName(event.nativeEvent.text)}
       />
       <ButtonComponent type="primary" onPress={handleSubmit}>
-        {i18n.t('genres.newGenre.submit')}
+        {i18n.t('genres.updateGenre.submit')}
       </ButtonComponent>
     </View>
   );

@@ -68,14 +68,13 @@ export default function UpdateBook({ navigation: { navigate } }) {
     <View style={globalStyles.container}>
       <InputComponent
         value={title}
-        placeholder={i18n.t('books.newBook.title')}
-        placeholder="Title"
+        placeholder={i18n.t('books.updateBook.title')}
         style={styles.input}
         onChange={(event) => setTitle(event.nativeEvent.text)}
       />
       <InputComponent
         value={text}
-        placeholder={i18n.t('books.newBook.text')}
+        placeholder={i18n.t('books.updateBook.text')}
         style={styles.input}
         multiline
         onChange={(event) => setText(event.nativeEvent.text)}
@@ -89,7 +88,7 @@ export default function UpdateBook({ navigation: { navigate } }) {
         pickerItems={pickerGenres}
       />
       <ButtonComponent type="primary" onPress={handleSubmit}>
-        {i18n.t('books.newBook.submit')}
+        {i18n.t('books.updateBook.submit')}
       </ButtonComponent>
     </View>
   );

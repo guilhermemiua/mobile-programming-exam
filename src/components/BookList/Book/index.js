@@ -12,10 +12,10 @@ export default function Book({ navigation, book }) {
 
   const toggleAbstract = () => setShowAbstract(!showAbstract);
 
-  const goToViewBook = () => {
-    dispatch(selectBook(book));
+  const goToViewBook = async () => {
+    await dispatch(selectBook(book));
 
-    navigation.navigate('View Book', { title: book.title });
+    await navigation.navigate('View Book', { title: book.title });
   };
 
   const displayDeleteAlert = () => {

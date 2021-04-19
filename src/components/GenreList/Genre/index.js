@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { deleteGenre, selectGenre } from '../../../store/reducers/genres';
 import { theme } from '../../../styles/theme';
 
-export default function Genre({ navigate, genre }) {
+export default function Genre({ navigation, genre }) {
   const dispatch = useDispatch();
 
   const displayDeleteAlert = () => {
@@ -30,7 +30,7 @@ export default function Genre({ navigate, genre }) {
   const goToUpdateGenre = () => {
     dispatch(selectGenre(genre));
 
-    navigate('Update Genre');
+    navigation.navigate('Update Genre');
   };
 
   return (

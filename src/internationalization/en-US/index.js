@@ -11,7 +11,7 @@ export default {
   },
   register: {
     password: 'Password',
-    submit: 'Login',
+    submit: 'Register',
     hasAccount: 'Already have an account?',
   },
   unauthenticatedRoutes: {
@@ -56,6 +56,9 @@ export default {
     text3: 'To manage the books genres go to home -> genres',
     text4: 'Enjoy it!',
     author: 'Created by Guilherme Eiti',
+  },
+  changeLanguage: {
+    submit: 'Change Language',
   },
   // Components
   bookList: {
